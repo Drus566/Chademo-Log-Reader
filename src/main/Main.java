@@ -7,16 +7,13 @@ public class Main extends JFrame implements Runnable {
 
     private Reader reader;
     private Process process;
+    private ChargerTemplate chargerTemplate;
     private Gui gui;
     private Thread mainThread = null;
 
     Main() {
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         initClasses();
-        add(gui);
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
+        initGui();
     }
 
     public static void main(String[] args) {
@@ -41,12 +38,16 @@ public class Main extends JFrame implements Runnable {
         reader = new Reader();
         process = new Process();
         gui = new Gui(this);
+        chargerTemplate = new ChargerTemplate();
     }
 
     public void initGui() {
-
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        add(gui);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
-
 
     private void setThemeUI() {
 //        try {
