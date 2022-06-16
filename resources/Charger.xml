@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Charger>
+    <Message id="108">
+        <Byte
+                position="0"
+                ru_item="Флаг поддержки обнаружения соединения EV контактором"
+                en_item="EV contactor welding detection support identifier"
+        />
+        <Byte
+                position="1"
+                ru_item="Доступное выходное напряжение"
+                en_item="Available output voltage"
+        />
+        <Byte
+                position="2"
+                ru_item="Доступное выходное напряжение"
+                en_item="Available output voltage"
+        />
+        <Byte
+                position="3,4"
+                ru_item="Доступный выходной ток"
+                en_item="Available output current"
+        />
+        <Byte
+                position="4"
+                ru_item="Пороговое напряжение"
+                en_item="Treshold voltage"
+        />
+        <Byte
+                position="5"
+                ru_item="Пороговое напряжение"
+                en_item="Treshold voltage"
+        />
+    </Message>
+    <Message id="109">
+        <Byte
+                position="0"
+                ru_item="Версия протокола Chademo"
+                en_item="Charging sequence control (Chademo version protocol)"
+        />
+        <Byte
+                position="1,2"
+                ru_item="Текущее выходное напряжение"
+                en_item="Present output voltage"
+        />
+        <Byte
+                position="3"
+                ru_item="Текущий выходной ток"
+                en_item="Present output current"
+        />
+        <Byte
+                position="5"
+                ru_item="Состояния и аварии"
+                en_item="Status/fault flag"
+        >
+            <Bit
+                position="0"
+                ru_item="Состояние зарядки (выдает ток или нет)"
+                en_item="Charger status"
+            />
+            <Bit
+                position="1"
+                ru_item="Неисправность зарядного устройства"
+                en_item="Charger malfunction"
+            />
+            <Bit
+                position="2"
+                ru_item="Коннектор зарядного устройства заблокирован"
+                en_item="Charger connector lock"
+            />
+            <Bit
+                position="3"
+                ru_item="Несовместимость с батареей электромобиля"
+                en_item="Battery incompatibility"
+            />
+            <Bit
+                position="4"
+                ru_item="Неисправность системы зарядки"
+                en_item="Charging system fault"
+            />
+            <Bit
+                position="5"
+                ru_item="Контроль остановки зарядного устройства (1 - когда зарядник переключает режим управления для уменьшения зарядного тока для завершения"
+                en_item="Charger stop control"
+            />
+            <Bit
+                position="6"
+                ru_item="Контроль остановки зарядного устройства (1 - когда зарядник переключает режим управления для уменьшения зарядного тока для завершения"
+                en_item="Charger stop control"
+            />
+        </Byte>
+        <Byte
+                position="6"
+                ru_item="Оставшееся время зарядки (в секундах по 10 секунд)"
+                en_item="Remaining charging time (by 10 s)"
+        />
+        <Byte
+                position="7"
+                ru_item="Оставшееся время зарядки (в минутах по 1 минуте)"
+                en_item="Remaining charging time (by 1 min)"
+        />
+    </Message>
+</Charger>

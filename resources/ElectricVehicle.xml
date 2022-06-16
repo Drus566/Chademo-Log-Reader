@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Vehicle>
+    <Message id="100">
+        <Byte
+                position="4,5"
+                ru_item="Максимальное напряжение батареи"
+                en_item="Maximum battery voltage"
+        />
+        <Byte
+                position="6"
+                ru_item="Постоянная индикации скорости зарядки"
+                en_item="Constant of charging rate indication"
+        />
+    </Message>
+    <Message id="101">
+        <Byte
+                position="1"
+                ru_item="Максимальное время зарядки (в секундах по 10 секунд)"
+                en_item="Maximum charging time (by 10 s)"
+        />
+        <Byte
+                position="2"
+                ru_item="Максимальное время зарядки (в минутах по 1 минуте)"
+                en_item="Maximum charging time (by 1 min)"
+        />
+        <Byte
+                position="3"
+                ru_item="Примерное время зарядки (в минутах по 1 минуте)"
+                en_item="Estimated charging time (by 1 min)"
+        />
+    </Message>
+    <Message id="102">
+        <Byte
+                position="0"
+                ru_item="Версия протокола chademo"
+                en_item="Charging sequence control number (version protocol number chademo)"
+        />
+        <Byte
+                position="1,2"
+                ru_item="Требуемое напряжение батареи"
+                en_item="Target battery voltage"
+        />
+        <Byte
+                position="3"
+                ru_item="Запрос зарядного тока"
+                en_item="Charging current request"
+        />
+        <Byte
+                position="4"
+                ru_item="Аварии"
+                en_item="Fault flag"
+        >
+            <Bit
+                    position="0"
+                    ru_item="Перенапряжение батареи"
+                    en_item="Battery overvoltage"
+            />
+            <Bit
+                    position="1"
+                    ru_item="Пониженное напряжение"
+                    en_item="Battery undervoltage"
+            />
+            <Bit
+                    position="2"
+                    ru_item="Ошибка отклонения тока батареи"
+                    en_item="Battery current deviation error"
+            />
+            <Bit
+                    position="3"
+                    ru_item="Высокая температура батареи"
+                    en_item="High battery temperature"
+            />
+            <Bit
+                    position="4"
+                    ru_item="Ошибка отклонения напряжения"
+                    en_item="Voltage deviation error"
+            />
+        </Byte>
+
+        <Byte
+                position="5"
+                ru_item="Состояния"
+                en_item="Status flag"
+        >
+            <Bit
+                    position="0"
+                    ru_item="Режим зарядки автомобиля"
+                    en_item="Vehicle charging enable"
+            />
+            <Bit
+                    position="1"
+                    ru_item="Режим парковки"
+                    en_item="Vehicle shift level position"
+            />
+            <Bit
+                    position="2"
+                    ru_item="Неисправность системы зарядки"
+                    en_item="Charging system fault"
+            />
+            <Bit
+                    position="3"
+                    ru_item="Статус коннектора автомобиля (0 - замкнут, 1 - разомкнут)"
+                    en_item="Vehicle status"
+            />
+            <Bit
+                    position="4"
+                    ru_item="Запрос на остановку управления зарядкой"
+                    en_item="Vehicle status"
+            />
+        </Byte>
+        <Byte
+                position="6"
+                ru_item="Скорость зарядки батареи"
+                en_item="Charging rate (for display)"
+        />
+    </Message>
+</Vehicle>
