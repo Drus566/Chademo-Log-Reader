@@ -56,7 +56,7 @@
             <Bit
                 position="0"
                 ru_item="Состояние зарядки (выдает ток или нет)"
-                en_item="Charger status"
+                en_item="Charger statuws"
             />
             <Bit
                 position="1"
