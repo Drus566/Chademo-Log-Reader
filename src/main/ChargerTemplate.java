@@ -28,19 +28,19 @@ public class ChargerTemplate {
 
     public class Metadata {
 
-        Metadata(int position, String ru_item, String en_item) {
+        Metadata(int[] position, String ru_item, String en_item) {
             this.position = position;
             this.ru_item = ru_item;
             this.en_item = en_item;
         }
 
-        protected int position;
+        protected int[] position;
         protected String ru_item;
         protected String en_item;
     }
 
     public class Byte extends Metadata {
-        Byte(int position, String ru_item, String en_item) {
+        Byte(int[] position, String ru_item, String en_item) {
             super(position, ru_item, en_item);
         }
 
@@ -58,12 +58,12 @@ public class ChargerTemplate {
 
         @Override
         public int hashCode() {
-            return this.position;
+            return position[0];
         }
     }
 
     public class Bit extends Metadata {
-        Bit(int position, String ru_item, String en_item) {
+        Bit(int[] position, String ru_item, String en_item) {
             super(position, ru_item, en_item);
         }
     }
@@ -88,7 +88,7 @@ public class ChargerTemplate {
 
                     // Перебор байтов
                     ArrayList<Map<Byte, ArrayList<Bit>>> byteArray = new ArrayList<Map<Byte, ArrayList<Bit>>>(0);
-                    NodeList byteNodes = messageNode.getChildNodes();
+                    NodeList byteNodes = messageElement.getElementsByTagName("Byte");
                     if (byteNodes.getLength() > 0) {
                         Map<Byte, ArrayList<Bit>> byteMap = new HashMap<Byte, ArrayList<Bit>>(0);
                         for (int j = 0; j < byteNodes.getLength(); j++) {
@@ -97,24 +97,35 @@ public class ChargerTemplate {
                             }
 
                             Node byteNode = byteNodes.item(j);
-                            System.out.println(byteNode);
                             Element byteElement = (Element) byteNode;
-                            int positionByte = Integer.decode(byteElement.getAttribute("position"));
+
+                            String[] positionBytes = byteElement.getAttribute("position").split(",");
+                            int[] positionByte = new int[] {0,0};
+                            for (int l = 0; l < positionBytes.length; l++) {
+                                positionByte[l] = Integer.decode(positionBytes[l]);
+                            }
                             String ruItemByte = byteElement.getAttribute("ru_item");
                             String enItemByte = byteElement.getAttribute("en_item");
 
                             // Перебор битов
                             ArrayList<Bit> bits = new ArrayList<Bit>(0);
-                            NodeList bitNodes = byteNode.getChildNodes();
+                            NodeList bitNodes = byteElement.getElementsByTagName("Bit");
                             if (bitNodes.getLength() > 0) {
                                 for (int k = 0; k < bitNodes.getLength(); k++) {
                                     if (bitNodes.item(k).getNodeType() != Node.ELEMENT_NODE) {
                                         continue;
                                     }
 
-                                    Node bitNode = byteNodes.item(i);
-                                    Element bitElement = (Element) bitNode;
-                                    int positionBit = Integer.decode(bitElement.getAttribute("position"));
+//                                    System.out.println(bitNodes.getLength());
+//                                    Node bitNode = byteNodes.item(k);
+                                    Element bitElement = (Element) byteNodes.item(k);
+//                                    System.out.println(bitElement.);
+
+                                    String[] positionBits = bitElement.getAttribute("position").split(",");
+                                    int[] positionBit = new int[] {0,0};
+                                    for (int h = 0; h < positionBits.length; h++) {
+                                        positionBit[h] = Integer.decode(positionBits[h]);
+                                    }
                                     String ruItemBit = bitElement.getAttribute("ru_item");
                                     String enItemBit = bitElement.getAttribute("en_item");
 
