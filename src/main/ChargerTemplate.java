@@ -96,7 +96,8 @@ public class ChargerTemplate {
                                 continue;
                             }
 
-                            Node byteNode = byteNodes.item(i);
+                            Node byteNode = byteNodes.item(j);
+                            System.out.println(byteNode);
                             Element byteElement = (Element) byteNode;
                             int positionByte = Integer.decode(byteElement.getAttribute("position"));
                             String ruItemByte = byteElement.getAttribute("ru_item");
