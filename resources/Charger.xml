@@ -7,27 +7,17 @@
                 en_item="EV contactor welding detection support identifier"
         />
         <Byte
-                position="1"
+                position="1,2"
                 ru_item="Доступное выходное напряжение"
                 en_item="Available output voltage"
         />
         <Byte
-                position="2"
-                ru_item="Доступное выходное напряжение"
-                en_item="Available output voltage"
-        />
-        <Byte
-                position="3,4"
+                position="3"
                 ru_item="Доступный выходной ток"
                 en_item="Available output current"
         />
         <Byte
-                position="4"
-                ru_item="Пороговое напряжение"
-                en_item="Treshold voltage"
-        />
-        <Byte
-                position="5"
+                position="4,5"
                 ru_item="Пороговое напряжение"
                 en_item="Treshold voltage"
         />
@@ -56,7 +46,7 @@
             <Bit
                 position="0"
                 ru_item="Состояние зарядки (выдает ток или нет)"
-                en_item="Charger statuws"
+                en_item="Charger status"
             />
             <Bit
                 position="1"

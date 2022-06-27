@@ -98,10 +98,10 @@ public class Process {
                         for (int i = 1; i <= bytesMatcher.groupCount(); i++) {
                             String bytes = bytesMatcher.group(i);
                             String reverseBytes = new StringBuilder(bytes).reverse().toString();
-
-                            System.out.println("*****BYTE " + i + "********");
-                            System.out.println(Integer.decode("0x" + reverseBytes.toLowerCase(Locale.ROOT)));
-                            System.out.println("********************");
+//
+//                            System.out.println("*****BYTE " + i + "********");
+//                            System.out.println(Integer.decode("0x" + reverseBytes.toLowerCase(Locale.ROOT)));
+//                            System.out.println("********************");
                         }
                         break;
                 }
