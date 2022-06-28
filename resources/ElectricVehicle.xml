@@ -28,6 +28,11 @@
                 ru_item="Примерное время зарядки (в минутах по 1 минуте)"
                 en_item="Estimated charging time (by 1 min)"
         />
+        <Byte
+                position="5,6"
+                ru_item="Общая емкость батареи"
+                en_item="Total capacity of battery"
+        />
     </Message>
     <Message id="102">
         <Byte
@@ -37,12 +42,12 @@
         />
         <Byte
                 position="1,2"
-                ru_item="Требуемое напряжение батареи"
+                ru_item="Заданное напряжение батареи"
                 en_item="Target battery voltage"
         />
         <Byte
                 position="3"
-                ru_item="Запрос зарядного тока"
+                ru_item="Запрашиваемый зарядный ток"
                 en_item="Charging current request"
         />
         <Byte

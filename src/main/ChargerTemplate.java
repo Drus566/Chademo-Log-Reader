@@ -98,11 +98,18 @@ public class ChargerTemplate {
     }
 
     private void readConfig() {
-        Document doc;
+        Document docCharger;
+        Document docVehicle;
 
         try {
-            doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new FileInputStream(new File("resources/Charger.xml")));
-            NodeList nodes = doc.getElementsByTagName("Message");
+            docCharger = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new FileInputStream(new File("resources/Charger.xml")));
+            docVehicle = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new FileInputStream(new File("resources/ElectricVehicle.xml")));
+
+            NodeList nodesCharger = docCharger.getElementsByTagName("Message");
+            NodeList nodesVehicle = docVehicle.getElementsByTagName("Message");
+            NodeList allNodes;
+            allNodes.
+
 
             // Перебор Can сообщений
             if (nodes.getLength() > 0) {
@@ -162,10 +169,10 @@ public class ChargerTemplate {
                                 }
                             }
                             byteMap.put(new Byte(positionByte, ruItemByte, enItemByte), bits);
-                            byteArray.add(byteMap);
                         }
-                        chargerMessages.put(messageId, byteArray);
+                        byteArray.add(byteMap);
                     }
+                    chargerMessages.put(messageId, byteArray);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -177,5 +184,9 @@ public class ChargerTemplate {
         } catch (SAXException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void processDoc() {
+
     }
 }
