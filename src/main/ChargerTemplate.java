@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +25,7 @@ public class ChargerTemplate {
 
     public ChargerTemplate() {
         readConfig();
+        showChargerMessages();
     }
 
     public class Metadata {
@@ -65,6 +67,33 @@ public class ChargerTemplate {
     public class Bit extends Metadata {
         Bit(int[] position, String ru_item, String en_item) {
             super(position, ru_item, en_item);
+        }
+    }
+
+    private void showChargerMessages() {
+        for (Map.Entry<Integer, ArrayList<Map<Byte, ArrayList<Bit>>>> chargerMessage : chargerMessages.entrySet()) {
+            System.out.println("~~~~~~~~" + chargerMessage.getKey() + "~~~~~~~~");
+            ArrayList<Map<Byte, ArrayList<Bit>>> array = chargerMessage.getValue();
+            for (Map<Byte, ArrayList<Bit>> entry_bytes : array) {
+                System.out.println("Bytes:");
+                for (Byte key : entry_bytes.keySet()) {
+                    System.out.println("    Byte: ");
+                    for (int i = 0; i < key.position.length; i++) {
+                        if (i == 1 && key.position[1] <= key.position[0]) {
+                            continue;
+                        }
+                        System.out.println("        position: " + key.position[i]);
+                    }
+                    System.out.println("        description: " + key.ru_item);
+
+                    ArrayList<Bit> bits = entry_bytes.get(key);
+                    for (Bit bit : bits) {
+                        System.out.println("        Bit: " + bit.position[0]);
+                        System.out.println("             " + bit.ru_item);
+
+                    }
+                }
+            }
         }
     }
 
@@ -118,8 +147,8 @@ public class ChargerTemplate {
 
 //                                    System.out.println(bitNodes.getLength());
 //                                    Node bitNode = byteNodes.item(k);
-                                    Element bitElement = (Element) byteNodes.item(k);
-//                                    System.out.println(bitElement.);
+                                    Element bitElement = (Element) bitNodes.item(k);
+//                                    System.out.println(bitElement);
 
                                     String[] positionBits = bitElement.getAttribute("position").split(",");
                                     int[] positionBit = new int[] {0,0};
